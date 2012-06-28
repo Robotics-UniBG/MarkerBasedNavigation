@@ -1,4 +1,4 @@
-cameraDistorsionParamPath: ../mbn_common/camera_calibration/spotLightProWebcam3.cal
+cameraDistorsionParamPath: ../mbn_common/camera_calibration/no_distortion.cal
 cameraWidth: 640
 cameraHeight: 480
 blackWhiteThreshold: 0

@@ -97,6 +97,7 @@ public:
 
 	/**
 	 * Configures the class.
+	 * \return the status of the operation.
 	 */
 	bool configureMarkerLocatorComputation();
 
@@ -109,16 +110,19 @@ public:
 
 	/**
 	 * Gets the camera distorsion file path.
+	 * \return the status of the operation.
 	 */
 	string getCameraDistorsionParamPath();
 
 	/**
 	 * Get the camera height.
+	 * \return the camera height.
 	 */
 	int getCameraHeight() ;
 
 	/**
 	 * Get the camera width.
+	 * \return the camera width.
 	 */
 	int getCameraWidth() ;
 
