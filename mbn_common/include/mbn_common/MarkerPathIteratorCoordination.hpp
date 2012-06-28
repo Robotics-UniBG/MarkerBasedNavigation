@@ -1,0 +1,173 @@
+/********************************************************************************
+ *
+ * MarkerPathIteratorCoordination
+ *
+ * Copyright (c) 2012
+ * All rights reserved.
+ *
+ * Davide Brugali, Aldo Biziak, Luca Gherardi, Andrea Luzzana
+ * University of Bergamo
+ * Dept. of Information Technology and Mathematics
+ *
+ * -------------------------------------------------------------------------------
+ *
+ * File: MarkerPathIteratorCoordination.hpp
+ * Created: June 11, 2012
+ *
+ * Author: <A HREF="mailto:luca.gherardi@unibg.it">Luca Gherardi</A>
+ * Author: <A HREF="mailto:andrea.luzzana@unibg.it">Andrea Luzzana</A>
+ * Author: <A HREF="mailto:aldo.biziak@unibg.it">Aldo Biziak</A>
+ * 
+ * Supervised by: <A HREF="mailto:brugali@unibg.it">Davide Brugali</A>
+ * 
+ * -------------------------------------------------------------------------------
+ *
+ * This sofware is published under a dual-license: GNU Lesser General Public
+ * License LGPL 2.1 and BSD license. The dual-license implies that users of this
+ * code may choose which terms they prefer.
+ *
+ * -------------------------------------------------------------------------------
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ *  - Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  - Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *  - Neither the name of the University of Bergamo nor the names of its
+ *    contributors may be used to endorse or promote products derived from
+ *    this software without specific prior written permission.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License LGPL as
+ * published by the Free Software Foundation, either version 2.1 of the
+ * License, or (at your option) any later version or the BSD license.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Lesser General Public License LGPL and the BSD license for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License LGPL and BSD license along with this program.
+ *
+ *******************************************************************************/
+
+#ifndef MARKER_PATH_ITERATOR_COORDINATION_HPP
+#define MARKER_PATH_ITERATOR_COORDINATION_HPP
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+#include "mbn_common/MarkerPathIteratorComputation.hpp"
+#include "mbn_common/Events.hpp"
+
+using namespace std;
+
+namespace mbn_common{
+
+class MarkerPathIteratorCoordination{
+
+private:
+
+	/**
+	 * The possible states of the state machine
+	 */
+	typedef enum {
+		IDLE = 0,				/** The marker path iterator is idle */
+		PATH_RECEIVED = 1,		/** The marker path iterator has received a marker path and is waiting for new inputs */
+		GOAL_GENERATED = 2,		/** The marker path iterator has produced a target position and is waiting for the movement start */
+		MOVING = 3,				/** The marker path iterator has produced a target position and the movement has started */
+		SEARCH = 4				/** The marker path iterator cannot found the current target marker */
+	} state;
+
+public:
+
+	/**
+	 * Class constructor
+	 */
+	MarkerPathIteratorCoordination(MarkerPathIteratorComputation* markerPathIteratorComputer);
+
+	/**
+	 * Class destroyer.
+	 */
+	~MarkerPathIteratorCoordination(void);
+
+	/**
+	 * This method trigger the state machine and has to be called
+	 * when a new marker path is provided
+	 */
+	void notifyMarkerPathReceived();
+
+	/**
+	 * This method trigger the state machine and has to be called
+	 * when a new set of visible markers is provided
+	 */
+	void notifyDetectedMarkersReceived();
+
+
+	/**
+	 * This method trigger the state machine and has to be called
+	 * when the robot reach the current target pose.
+	 */
+	void notifyCurrentMarkerReached();
+
+	/**
+	 * This method trigger the state machine and has to be called
+	 * when the robot start moving along the last generated goal pose.
+	 */
+	void notifyMotionStarted();
+
+	/**
+	 * This method trigger the state machine and has to be called
+	 * when the robot is now able to see the marker that wasn't
+	 * visible before and for which the state machines moved in
+	 * the state SEARCH
+	 */
+	void notifyMarkerFound();
+
+
+	/**
+	 * \return "MARKER_GOAL_REACHED" if the robot has completed the marker path,
+	 * "TARGET_MARKER_NOT_FOUND_ID:" + markerID if the current marker cannot be found.
+	 *
+	 * This method return the event generated by the FSM
+	 */
+	string getOutputEvent();
+
+private:
+
+	/**
+	 * Create the output event for notifying that is not possible to find
+	 * a marker
+	 */
+	string createMarkerNotFoundEvent();
+
+	/**
+	 * The current state of the state machine
+	 */
+	state currentState;
+
+	/**
+	 * This is true when the last received marker has been completed
+	 */
+	bool pathCompleted;
+
+	/**
+	 * The output event that will be returned by the method getOutputEvent.
+	 */
+	string outputEvent;
+
+
+	MarkerPathIteratorComputation* markerPathIteratorComputation;
+
+};
+
+}
+
+#endif
