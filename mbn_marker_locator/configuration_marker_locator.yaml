@@ -1,0 +1,19 @@
+cameraDistorsionParamPath: ../mbn_common/camera_calibration/spotLightProWebcam3.cal
+cameraWidth: 640
+cameraHeight: 480
+blackWhiteThreshold: 0
+min_confidence: 0.51
+enableIDfilter: true
+enableDetectOnlyTheBest: false
+useBCH: true
+fixedCameratransform_orientation_x: 0.605264513355796784921381
+fixedCameratransform_orientation_y: -0.6046413882567365227771461
+fixedCameratransform_orientation_z: 0.3658624508189032287219788
+fixedCameratransform_orientation_w: -0.3663445476050141702550889
+fixedCameratransform_position_x: 0.2904269999999999907203119
+fixedCameratransform_position_y: 0.04000000000000000083266727
+fixedCameratransform_position_z: 0.4847500000000000142108547
+markersBaseWidth: 40
+markersVectorIDtoFind: [0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+markersDimensions:     [40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40]
+

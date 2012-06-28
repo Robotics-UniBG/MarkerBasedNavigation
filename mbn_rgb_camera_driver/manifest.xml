@@ -1,0 +1,21 @@
+<package>
+  <description brief="rgb_camera_driver">
+
+     rgb_camera_driver
+
+  </description>
+  <author>Andrea</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/rgb_camera_driver</url>
+  <depend package="cv_bridge" />
+  <rosdep name="opencv2.3"/>
+  <depend package="sensor_msgs" />
+  <depend package="std_msgs" />
+  <depend package="roscpp" />
+  <depend package="image_transport" />
+  <depend package="mbn_common"/>
+  <depend package="yaml_cpp"/>
+</package>
+
+
