@@ -1,0 +1,23 @@
+<package>
+  <description brief="mbn_marker_locator">
+
+     mbn_marker_locator
+
+  </description>
+  <author>Andrea</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/mbn_marker_locator</url>
+  <depend package="artoolkitplus"/>
+  <rosdep name="bzr"/>
+  <depend package="tf"/>
+  <depend package="brics_rn_msgs"/>
+  <depend package="cv_bridge" />
+  <rosdep name="opencv2.3"/>
+  <depend package="sensor_msgs" />
+  <depend package="image_transport" />
+  <depend package="mbn_common" />
+  <depend package="yaml_cpp"/>
+</package>
+
+
