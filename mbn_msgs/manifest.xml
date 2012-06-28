@@ -1,0 +1,11 @@
+<package>
+  <description brief="mbn_msgs">
+     Marker Based Navigation messages
+  </description>
+  <author>Luca Gherardi</author>
+  <license>BSD</license>
+  <depend package="geometry_msgs"/>
+  <depend package="nav_msgs"/>   
+</package>
+
+
