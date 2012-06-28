@@ -84,14 +84,16 @@ private:
 	typedef enum {
 		IDLE = 0, 				/** The marker searcher is idle */
 		TARGET_RECEIVED = 1,	/** The marker searcher has received the target marker and is waiting for new inputs */
-		GOAL_GENERATED = 2,     /** The marker searcher has produced a search position and is waiting for the movement start */
-		MOVING = 3				/** The marker searcher has produced a search position and the movement has started */
+		GOAL_GENERATED = 2,     /** The marker searcher has produced a search pose and is waiting for the movement start */
+		MOVING = 3				/** The marker searcher has produced a search pose and the movement has started */
 	} state;
 
 public:
 
 	/**
-	 * Class constructor.
+	 * \param markerSearcherComputer a pointer to the computation instance
+	 *
+	 * Creates a new MarkerSearcherCoordinator.
 	 */
 	MarkerSearcherCoordination(MarkerSearcherComputation* markerSearcherComputer);
 
@@ -115,7 +117,7 @@ public:
 	/**
 	 * This method trigger the state machine and has to be called
 	 * periodically. It looks whether the target marker has been found
-	 * or not and if needed (marker not found) ask to markerSearcherComputer
+	 * or not and if needed (marker not found) ask to markerSearcherComputation
 	 * to generate a new search pose.
 	 */
 	void notifyTimeElapsed();
@@ -123,13 +125,13 @@ public:
 	/**
 	 * This method trigger the state machine and has to be called
 	 * when the robot starts to move towards the last computed search
-	 * position
+	 * pose
 	 */
 	void notifyMotionStarted();
 
 	/**
 	 * This method trigger the state machine and has to be called
-	 * when the robot has reached the last computed search position
+	 * when the robot has reached the last computed search pose
 	 */
 	void notifySearchPoseReached();
 
@@ -162,7 +164,7 @@ private:
 
 	/**
 	 * The Marker searcher computer, which is in charge of computing the next search
-	 * position based on the inputs
+	 * pose based on the inputs
 	 */
 	MarkerSearcherComputation* markerSearcherComputation;
 

@@ -76,7 +76,7 @@ class MarkerSearcherComputation{
 public:
 
 	/**
-	 * Class constructor.
+	 * Creates a new MarkerSearcherComputation
 	 */
 	MarkerSearcherComputation();
 
@@ -103,7 +103,7 @@ public:
 	/**
 	 * \param lastOdometryPose the new value of the robot odometry (TF) pose
 	 *
-	 * Update the robot odometry (TF) pose
+	 * Store the robot odometry (TF) pose
 	 */
 	void setOdometryPose(tf::Pose lastOdometryPose);
 
@@ -116,7 +116,8 @@ public:
 	void setVisibleMarkersIDs(vector<int> visibleMarkersIDs);
 
 	/**
-	 * \return true if the target marker is in the set of visible markers
+	 * \return true if the target marker is in the set of visible markers,
+	 * false however
 	 *
 	 * Search the target marker in the set of visible markers IDs
 	 * stored with the method setVisibleMarkersID.
@@ -125,7 +126,7 @@ public:
 
 	/**
 	 * \param returnPose the (TF) pose in which will be saved the next research
-	 * position
+	 * pose
 	 * \return true if the (TF) pose has not yet been returned, false however.
 	 *
 	 * Return the last computed research pose as output parameter and specify
@@ -147,9 +148,9 @@ public:
 	double getAngleIncrement();
 
 	/**
-	 * \param the new value of the angle increment
+	 * \param angleIncrement the new value of the angle increment
 	 *
-	 * Set the value of the variabkle angleIncrement
+	 * Set the value of the variable angleIncrement
 	 */
 	void setAngleIncrement(double angleIncrement);
 
@@ -168,7 +169,7 @@ private:
 
 	/**
 	 * lastOdometryPose the last (TF) pose of the robot
-	 * \return the (TF) pose in which the goal absolute position
+	 * \return the (TF) pose in which the goal absolute pose
 	 * is saved and returned.
 	 */
 	tf::Pose lastOdometryPose;

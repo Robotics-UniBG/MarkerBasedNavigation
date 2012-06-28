@@ -89,7 +89,9 @@ private:
 public:
 
 	/**
-	 * Class constructor
+	 *\param markerPathIteratorComputer a pointer to the computation instance
+	 *
+	 * Creates a new MarkerPathIteratorCoordination
 	 */
 	MarkerPathIteratorCoordination(MarkerPathIteratorComputation* markerPathIteratorComputer);
 

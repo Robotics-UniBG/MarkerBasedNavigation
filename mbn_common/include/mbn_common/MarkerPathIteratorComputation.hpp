@@ -75,7 +75,7 @@ class MarkerPathIteratorComputation{
 public:
 
 	/**
-	 * Class constructor
+	 * Create a new MarkerPathIteratorComputation
 	 */
 	MarkerPathIteratorComputation();
 
@@ -94,7 +94,7 @@ public:
 
 	/**
 	 * Commit the last marker path stored with the method setMarkerPath. Only
-	 * when this method has been called the marker path can be executed.
+	 * when this method has been called the marker path can be iterated.
 	 */
 	void updateMarkerPath();
 
@@ -120,22 +120,23 @@ public:
 	/**
 	 * \param lastOdometryPose the last (TF) pose of the robot
 	 *
-	 * Set the robot odometry
+	 * Stores the robot odometry
 	 */
 	void setOdometryPose(tf::Pose lastOdometryPose);
 
 	/**
-	 * \param the (TF) pose in which the current marker target pose will be
+	 * \param goalPose the (TF) pose in which the current marker target pose will be
 	 * returned
 	 * \return true if the current target marker has been detected,
 	 * false however
 	 *
-	 * Return the position of the current target marker
+	 * Return the position of the last detected target marker on the path
 	 */
 	bool getGoalPose(tf::Pose& goalPose);
 
 	/**
-	 * Return the ID of the current target marker
+	 * Return the ID of the last detected marker on the path.
+	 * Is is -1 if no one of the visible markers are on the path.
 	 */
 	int getGoalID();
 
@@ -159,7 +160,7 @@ public:
 	bool computeTargetMarkerPoseAndID();
 
 	/**
-	 * \return true
+	 * \return true if the current target marker is the last marker of the path
 	 */
 	bool isCurrentTargetTheLast();
 
