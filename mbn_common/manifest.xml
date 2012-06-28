@@ -1,0 +1,17 @@
+<package>
+    <description brief="mbn_common">
+    	This package contains the classes that implement the functionalities for the marker based navigation
+    </description>
+    <license></license>
+    <author>Luca Gherardi, Andrea Luzzana, Aldo Biziak</author>
+    <export>
+     <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -lmbn_common" />
+    </export>
+    <depend package="tf"/>
+    <depend package="angles"/>
+    <rosdep name="opencv2.3"/> 
+   <!-- <depend package="opencv2" /> -->  <!-- Still needs this, so that client code gets the cflags exported by opencv2's manifest-->
+    <rosdep name="bzr"/>
+    <depend package="artoolkitplus"/>
+</package>
+
