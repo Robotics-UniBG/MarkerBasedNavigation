@@ -54,9 +54,9 @@
  *
  *******************************************************************************/
 #include "mbn_marker_locator/MarkerLocatorNode.hpp"
-#include "brics_rn_msgs/MarkersPoses.h"
-#include "brics_rn_msgs/MarkerPose.h"
-#include "brics_rn_msgs/MarkersIDs.h"
+#include "mbn_msgs/MarkersPoses.h"
+#include "mbn_msgs/MarkerPose.h"
+#include "mbn_msgs/MarkersIDs.h"
 #include <yaml-cpp/yaml.h>
 #include <fstream>
 
@@ -73,8 +73,8 @@ int main(int argc, char **argv) {
 	ros::NodeHandle nodeHandle;
 	image_transport::ImageTransport it(nodeHandle);
 	image_transport::Subscriber imageSubscriber = it.subscribe("image_topic", 1, imageCallback);
-	markersPosesPublisher = nodeHandle.advertise<brics_rn_msgs::MarkersPoses>("markers_poses_topic", 1000);
-	markersIDsPublisher = nodeHandle.advertise<brics_rn_msgs::MarkersIDs>("markers_ids_topic", 1000);
+	markersPosesPublisher = nodeHandle.advertise<mbn_msgs::MarkersPoses>("markers_poses_topic", 1000);
+	markersIDsPublisher = nodeHandle.advertise<mbn_msgs::MarkersIDs>("markers_ids_topic", 1000);
 
 	//Setup marker locator
 	loadConstants();
@@ -192,8 +192,8 @@ void MarkerLocatorStep(sensor_msgs::ImageConstPtr imageInput){
 		ROS_ERROR("Could not convert from %s to 'bgr8'.", imageInput->encoding.c_str());
 	}
 
-	brics_rn_msgs::MarkersPoses detectedMarkersPoses;
-	brics_rn_msgs::MarkersIDs detectedMarkersIDs;
+	mbn_msgs::MarkersPoses detectedMarkersPoses;
+	mbn_msgs::MarkersIDs detectedMarkersIDs;
 
 	vector<int> vectorMarkersIDsFound;
 	vector<tf::Pose> vectorMarkersPosesFound;
@@ -201,7 +201,7 @@ void MarkerLocatorStep(sensor_msgs::ImageConstPtr imageInput){
 
 	for(int x=0; x < vectorMarkersIDsFound.size(); x++){
 		int currentMarkerID = vectorMarkersIDsFound.at(x);
-		brics_rn_msgs::MarkerPose markerPose=brics_rn_msgs::MarkerPose();
+		mbn_msgs::MarkerPose markerPose=mbn_msgs::MarkerPose();
 		markerPose.marker_id=currentMarkerID;
 		markerPose.header.stamp= imageInput->header.stamp;
 		//log info useful for debugging
