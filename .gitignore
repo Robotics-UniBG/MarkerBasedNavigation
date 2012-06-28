@@ -1,0 +1,8 @@
+.project
+.pydevproject
+.cproject
+cmake_install.cmake
+cmake_uninstall.cmake
+*/build/
+*/bin/
+*/lib/
