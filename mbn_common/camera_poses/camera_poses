@@ -1,0 +1,13 @@
+Camera pose wrt robot center (old camera holder)
+X:0.290427 Y:0.04 Z:0.48475
+QX: -0.605143 QY: 0.604852 QZ:-0.365789 QW:0.366271
+Roll: -2.0534 Pitch: 0.000370127 Yaw:-1.57009
+
+Camera pose wrt robot center (new camera holder)
+X:0.248988 Y:0 Z:0.497012
+QX: -0.632428 QY: 0.632176 QZ:-0.316282 QW:0.316786
+Roll: -2.21333 Pitch: 0.000477686 Yaw:-1.57016
+
+Camera pose wrt robot joint 5 (new camera holder)
+X:  Y:  Z:  
+Roll:0 Pitch:0 Yaw:1.57079633
