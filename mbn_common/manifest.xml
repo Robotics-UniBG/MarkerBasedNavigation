@@ -10,7 +10,6 @@
     <depend package="tf"/>
     <depend package="angles"/>
     <rosdep name="opencv2.3"/> 
-   <!-- <depend package="opencv2" /> -->  <!-- Still needs this, so that client code gets the cflags exported by opencv2's manifest-->
     <rosdep name="bzr"/>
     <depend package="artoolkitplus"/>
 </package>
