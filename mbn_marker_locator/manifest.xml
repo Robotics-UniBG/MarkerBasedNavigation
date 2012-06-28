@@ -11,7 +11,7 @@
   <depend package="artoolkitplus"/>
   <rosdep name="bzr"/>
   <depend package="tf"/>
-  <depend package="brics_rn_msgs"/>
+  <depend package="mbn_msgs"/>
   <depend package="cv_bridge" />
   <rosdep name="opencv2.3"/>
   <depend package="sensor_msgs" />
