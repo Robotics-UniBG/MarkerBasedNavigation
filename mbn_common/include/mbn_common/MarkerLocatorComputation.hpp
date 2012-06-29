@@ -54,8 +54,8 @@
  * License LGPL and BSD license along with this program.
  *
  *******************************************************************************/
-#ifndef COMPUTATION_HPP_
-#define COMPUTATION_HPP_
+#ifndef MARKER_LOCATOR_COMPUTATION_HPP
+#define MARKER_LOCATOR_COMPUTATION_HPP
 
 // ARToolKitPlus includes
 #include <ar.h>
