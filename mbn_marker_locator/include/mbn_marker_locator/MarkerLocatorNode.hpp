@@ -82,7 +82,7 @@ double min_confidence;
 bool enableIDfilter;
 bool enableDetectOnlyTheBest;
 bool useBCH;
-geometry_msgs::Pose fixedCameratransform;
+tf::Pose fixedCameratransform;
 double markersBaseWidth; //it's the default distance used for all markers
 vector<int> markersVectorIDtoFind;//the list of BHC ID that we want to use
 vector<double> markersDimensions;//the list of markers dimensions

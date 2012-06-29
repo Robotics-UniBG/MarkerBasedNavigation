@@ -149,13 +149,20 @@ bool loadConstants(){
 		doc["enableDetectOnlyTheBest"] >> enableDetectOnlyTheBest;
 		doc["useBCH"] >> useBCH;
 
-		doc["fixedCameratransform_orientation_x"] >> fixedCameratransform.orientation.x;
-		doc["fixedCameratransform_orientation_y"] >> fixedCameratransform.orientation.y;
-		doc["fixedCameratransform_orientation_z"] >> fixedCameratransform.orientation.z;
-		doc["fixedCameratransform_orientation_w"] >> fixedCameratransform.orientation.w;
-		doc["fixedCameratransform_position_x"] >> fixedCameratransform.position.x;
-		doc["fixedCameratransform_position_y"] >> fixedCameratransform.position.y;
-		doc["fixedCameratransform_position_z"] >> fixedCameratransform.position.z;
+
+		double x, y, z, qx, qy, qz, qw;
+
+		doc["fixedCameratransform_orientation_x"] >> x;
+		doc["fixedCameratransform_orientation_y"] >> y;
+		doc["fixedCameratransform_orientation_z"] >> z;
+		doc["fixedCameratransform_orientation_w"] >> qx;
+		doc["fixedCameratransform_position_x"] >> qy;
+		doc["fixedCameratransform_position_y"] >> qz;
+		doc["fixedCameratransform_position_z"] >> qw;
+
+		fixedCameratransform.setOrigin(btVector3(x,y,z));
+		fixedCameratransform.setRotation(btQuaternion(qx, qy, qz, qw));
+
 		doc["markersBaseWidth"] >>  markersBaseWidth;
 
 		const YAML::Node& markersIDs = doc["markersVectorIDtoFind"];
@@ -199,7 +206,7 @@ void MarkerLocatorStep(sensor_msgs::ImageConstPtr imageInput){
 	vector<tf::Pose> vectorMarkersPosesFound;
 	markerLocator->findMarkers(openCvImage.get()->image.data,&vectorMarkersIDsFound,&vectorMarkersPosesFound);
 
-	for(int x=0; x < vectorMarkersIDsFound.size(); x++){
+	for(unsigned int x=0; x < vectorMarkersIDsFound.size(); x++){
 		int currentMarkerID = vectorMarkersIDsFound.at(x);
 		mbn_msgs::MarkerPose markerPose=mbn_msgs::MarkerPose();
 		markerPose.marker_id=currentMarkerID;
