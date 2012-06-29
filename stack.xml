@@ -1,6 +1,11 @@
 <stack>
   <description brief="Marker Based Navigation">Marker Based Navigation</description>
-  <author>Luca Gherardi, Andrea Luzzana, Aldo Biziak</author>
-  <license>LGPL 2.1, BSD</license>  
+  <author>
+        Luca Gherardi/luca.gherardi@unbg.it, 
+     	Andrea Luzzana/andrea.luzzana@unibg.it, 
+    	Aldo Biziak/aldo.biziak@unibg.it, 
+    	Davide Brugali/brugali@unibg.it
+  </author>
+  <license>LGPL 2.1, BSD </license>
   <review status="unreviewed" notes=""/>
 </stack>

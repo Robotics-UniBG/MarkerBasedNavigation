@@ -3,7 +3,13 @@
     	This package contains the classes that implement the functionalities for the marker based navigation
     </description>
     <license></license>
-    <author>Luca Gherardi, Andrea Luzzana, Aldo Biziak</author>
+    <author>
+        Luca Gherardi/luca.gherardi@unbg.it, 
+     	Andrea Luzzana/andrea.luzzana@unibg.it, 
+    	Aldo Biziak/aldo.biziak@unibg.it, 
+    	Davide Brugali/brugali@unibg.it
+    </author>
+    <license>LGPL 2.1, BSD </license>
     <export>
      <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -lmbn_common" />
     </export>

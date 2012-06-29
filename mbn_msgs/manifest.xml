@@ -2,8 +2,13 @@
   <description brief="mbn_msgs">
      Marker Based Navigation messages
   </description>
-  <author>Luca Gherardi</author>
-  <license>BSD</license>
+  <author>
+        Luca Gherardi/luca.gherardi@unbg.it, 
+     	Andrea Luzzana/andrea.luzzana@unibg.it, 
+    	Aldo Biziak/aldo.biziak@unibg.it, 
+    	Davide Brugali/brugali@unibg.it
+  </author>
+  <license>LGPL 2.1, BSD </license>
   <depend package="geometry_msgs"/>
   <depend package="nav_msgs"/>   
 </package>

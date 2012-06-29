@@ -4,8 +4,13 @@
      mbn_marker_locator
 
   </description>
-  <author>Andrea</author>
-  <license>BSD</license>
+  <author>
+        Andrea Luzzana/andrea.luzzana@unibg.it, 
+    	Aldo Biziak/aldo.biziak@unibg.it, 
+    	Luca Gherardi/luca.gherardi@unbg.it, 
+     	Davide Brugali/brugali@unibg.it
+  </author>
+  <license>LGPL 2.1, BSD </license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/mbn_marker_locator</url>
   <depend package="artoolkitplus"/>
