@@ -11,7 +11,7 @@
  *
  * -------------------------------------------------------------------------------
  *
- * File: MarkerPathIteratorCoordination.cpp
+ * File: MarkerLocatorNode.cpp
  * Created: June 11, 2012
  *
  * Author: <A HREF="mailto:luca.gherardi@unibg.it">Luca Gherardi</A>
