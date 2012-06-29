@@ -103,7 +103,7 @@ public:
 	 * markers
 	 * \param markersIDs the vector of the identifiers of the detected
 	 * markers
-	 * \return true if the vectors have the same size, false however (it means
+	 * \return true if the vectors have the same size, false otherwise (it means
 	 * that the operation went wrong)
 	 *
 	 * Store in a temporarily vector a set of detected markers. This vector can be
@@ -128,7 +128,7 @@ public:
 	 * \param goalPose the (TF) pose in which the current marker target pose will be
 	 * returned
 	 * \return true if the current target marker has been detected,
-	 * false however
+	 * false otherwise
 	 *
 	 * Return the position of the last detected target marker on the path
 	 */

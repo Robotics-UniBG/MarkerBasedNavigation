@@ -117,7 +117,7 @@ public:
 
 	/**
 	 * \return true if the target marker is in the set of visible markers,
-	 * false however
+	 * false otherwise
 	 *
 	 * Search the target marker in the set of visible markers IDs
 	 * stored with the method setVisibleMarkersID.
@@ -127,7 +127,7 @@ public:
 	/**
 	 * \param returnPose the (TF) pose in which will be saved the next research
 	 * pose
-	 * \return true if the (TF) pose has not yet been returned, false however.
+	 * \return true if the (TF) pose has not yet been returned, false otherwise.
 	 *
 	 * Return the last computed research pose as output parameter and specify
 	 * if it has been already returned or not.

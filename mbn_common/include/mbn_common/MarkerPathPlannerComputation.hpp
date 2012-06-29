@@ -116,7 +116,7 @@ public:
 	 * \param goalId the last marker of the computed path.
 	 * \param markerIdPath the vector in which the computed path will be saved.
 	 * \return true if one of the visible markers allows to reach the goal marker,
-	 * false however.
+	 * false otherwise.
 	 *
 	 * Compute the shortest marker Path between one of the visible markers and goalId.
 	 */
