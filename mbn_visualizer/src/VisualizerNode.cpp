@@ -5,17 +5,18 @@
  * Copyright (c) 2012
  * All rights reserved.
  *
- * Luca Gherardi and Andrea Luzzana
+ * Davide Brugali, Aldo Biziak, Luca Gherardi, Andrea Luzzana
  * University of Bergamo
  * Dept. of Information Technology and Mathematics
  *
  * -------------------------------------------------------------------------------
  *
- * File: MarkerLocatorComputation.hpp
- * Created: Jan 20, 2012
+ * File: MarkerPathIteratorCoordination.cpp
+ * Created: June 11, 2012
  *
  * Author: <A HREF="mailto:luca.gherardi@unibg.it">Luca Gherardi</A>
  * Author: <A HREF="mailto:andrea.luzzana@unibg.it">Andrea Luzzana</A>
+ * Author: <A HREF="mailto:aldo.biziak@unibg.it">Aldo Biziak</A>
  *
  * Supervised by: <A HREF="mailto:brugali@unibg.it">Davide Brugali</A>
  *
@@ -53,6 +54,7 @@
  * License LGPL and BSD license along with this program.
  *
  *******************************************************************************/
+
 #include "mbn_visualizer/VisualizerNode.hpp"
 using namespace cv_bridge;
 using namespace sensor_msgs::image_encodings;
