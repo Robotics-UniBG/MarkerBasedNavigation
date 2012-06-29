@@ -143,7 +143,7 @@ public:
 	 * Get camera position and orientation.
 	 * \return camera position and orientation in a Pose.
 	 */
-	geometry_msgs::Pose getCameraPose() ;
+	tf::Pose getCameraPose() ;
 
 	/**
 	 * Get marker base width.
@@ -197,7 +197,7 @@ public:
 	 * set camera Pose
 	 * \param[in] cameraPose the camera rototraslation wrt the center of the robot or else.
 	 */
-	void setCameraPose(geometry_msgs::Pose cameraPose);
+	void setCameraPose(tf::Pose cameraPose);
 
 	/**
 	 * Set markers base width.
@@ -287,7 +287,7 @@ private:
 	/**
 	 * camera position
 	 */
-	geometry_msgs::Pose cameraPose;
+	tf::Pose cameraPose;
 
 	/**
 	 * all black/white thresholds to be used

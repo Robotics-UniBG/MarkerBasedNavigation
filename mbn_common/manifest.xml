@@ -2,7 +2,6 @@
     <description brief="mbn_common">
     	This package contains the classes that implement the functionalities for the marker based navigation
     </description>
-    <license></license>
     <author>
         Luca Gherardi/luca.gherardi@unbg.it, 
      	Andrea Luzzana/andrea.luzzana@unibg.it, 
@@ -16,7 +15,8 @@
     <depend package="tf"/>
     <depend package="angles"/>
     <rosdep name="opencv2.3"/> 
-    <rosdep name="bzr"/>
     <depend package="artoolkitplus"/>
+    <rosdep name="bzr"/>
+    <rosdep name="yaml_cpp"/>
 </package>
 

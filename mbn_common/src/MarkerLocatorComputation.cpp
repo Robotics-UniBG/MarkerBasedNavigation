@@ -74,10 +74,10 @@ MarkerLocatorComputation::MarkerLocatorComputation(const string & name) {
 	enableDetectOnlyTheBest = 0;
 	useBCH = 1;
 	markersBaseWidth = 40.0;
-	tf::Pose tempPose;
-	tempPose.setOrigin(btVector3(0, 0, 0));
-	tempPose.setRotation(btQuaternion(0, 0, 0, 1));
-	tf::poseTFToMsg(tempPose, cameraPose);
+	tf::Pose cameraPose;
+	cameraPose.setOrigin(btVector3(0, 0, 0));
+	cameraPose.setRotation(btQuaternion(0, 0, 0, 1));
+//	tf::poseTFToMsg(tempPose, cameraPose);
 }
 
 MarkerLocatorComputation::~MarkerLocatorComputation(void){
@@ -95,7 +95,7 @@ int MarkerLocatorComputation::getCameraWidth(){
 	return cameraWidth;
 }
 
-geometry_msgs::Pose MarkerLocatorComputation::getCameraPose(){
+tf::Pose MarkerLocatorComputation::getCameraPose(){
 	return cameraPose;
 }
 
@@ -154,7 +154,7 @@ void MarkerLocatorComputation::setEnableIDfilter(bool enableIDfilter){
 	this->enableIDfilter = enableIDfilter;
 }
 
-void MarkerLocatorComputation::setCameraPose(geometry_msgs::Pose cameraPose){
+void MarkerLocatorComputation::setCameraPose(tf::Pose cameraPose){
 	this->cameraPose = cameraPose;
 }
 
@@ -200,9 +200,9 @@ void MarkerLocatorComputation::addNewMarkerToFoundMarkersList(ARToolKitPlus::ARM
 	tf::Pose camera2markerPose;
 	ComputeMarkerToCameraPose(newMarkFound, camera2markerPose);
 
-	tf::Pose cameraPoseTf;
-	tf::poseMsgToTF(cameraPose,cameraPoseTf);
-	camera2markerPose.mult(cameraPoseTf, camera2markerPose);//the otput of this call overwrite camera2markerPose with the aspected final marker pose
+//	tf::Pose cameraPoseTf;
+//	tf::poseMsgToTF(cameraPose,cameraPoseTf);
+	camera2markerPose.mult(cameraPose, camera2markerPose);//the otput of this call overwrite camera2markerPose with the aspected final marker pose
 	detectedMarkersID->push_back(marker_found->id);
 	detectedMarkersPoses->push_back(camera2markerPose);
 }
