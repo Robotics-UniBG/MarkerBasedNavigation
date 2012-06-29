@@ -15,7 +15,8 @@
     <depend package="tf"/>
     <depend package="angles"/>
     <rosdep name="opencv2.3"/> 
-    <rosdep name="bzr"/>
     <depend package="artoolkitplus"/>
+    <rosdep name="bzr"/>
+    <rosdep name="yaml_cpp"/>
 </package>
 

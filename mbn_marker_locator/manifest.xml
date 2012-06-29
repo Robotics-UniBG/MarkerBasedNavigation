@@ -18,11 +18,11 @@
   <depend package="tf"/>
   <depend package="mbn_msgs"/>
   <depend package="cv_bridge" />
-  <rosdep name="opencv2.3"/>
   <depend package="sensor_msgs" />
   <depend package="image_transport" />
   <depend package="mbn_common" />
-  <depend package="yaml_cpp"/>
+  <rosdep name="opencv2.3"/>
+  <rosdep name="yaml_cpp"/>
 </package>
 
 

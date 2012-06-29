@@ -20,7 +20,7 @@
   <depend package="roscpp" />
   <depend package="image_transport" />
   <depend package="mbn_common"/>
-  <depend package="yaml_cpp"/>
+  <rosdep name="yaml_cpp"/>
 </package>
 
 
