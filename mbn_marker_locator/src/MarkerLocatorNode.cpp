@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
 }
 
 void imageCallback(const sensor_msgs::ImageConstPtr& imageMsg) {
-		MarkerLocatorStep(imageMsg);
+	MarkerLocatorStep(imageMsg);
 }
 
 bool configureMarkerLocator(){
@@ -154,16 +154,20 @@ bool loadConstants(){
 
 		double x, y, z, qx, qy, qz, qw;
 
-		doc["fixedCameratransform_orientation_x"] >> x;
-		doc["fixedCameratransform_orientation_y"] >> y;
-		doc["fixedCameratransform_orientation_z"] >> z;
+		//Load data
+		doc["fixedCameratransform_orientation_x"] >> qx;
+		doc["fixedCameratransform_orientation_y"] >> qy;
+		doc["fixedCameratransform_orientation_z"] >> qz;
 		doc["fixedCameratransform_orientation_w"] >> qw;
-		doc["fixedCameratransform_position_x"] >> qx;
-		doc["fixedCameratransform_position_y"] >> qy;
-		doc["fixedCameratransform_position_z"] >> qz;
+		doc["fixedCameratransform_position_x"] >> x;
+		doc["fixedCameratransform_position_y"] >> y;
+		doc["fixedCameratransform_position_z"] >> z;
 
-		fixedCameratransform.setOrigin(btVector3(x,y,z));
-		fixedCameratransform.setRotation(btQuaternion(qx, qy, qz, qw));
+		//Set data
+		fixedCameratransform.getOrigin().setX(x);
+		fixedCameratransform.getOrigin().setY(y);
+		fixedCameratransform.getOrigin().setZ(z);
+		fixedCameratransform.setRotation(btQuaternion(qx,qy,qz,qw));
 
 		doc["markersBaseWidth"] >>  markersBaseWidth;
 
@@ -226,4 +230,5 @@ void MarkerLocatorStep(sensor_msgs::ImageConstPtr imageInput){
 	markersIDsPublisher.publish(detectedMarkersIDs);
 
 }
+
 

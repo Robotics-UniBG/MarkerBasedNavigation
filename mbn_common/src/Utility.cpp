@@ -64,12 +64,16 @@ namespace Utilities{
 
 string Utility::getPositionAndOrientation(tf::Pose pose){
 	stringstream result;
+	btScalar roll, pitch, yaw;
+	pose.getBasis().getRPY(roll, pitch, yaw,1);
+
 	result  << "X:" << pose.getOrigin().getX()
 			<<" Y:" << pose.getOrigin().getY()
 			<<" Z:" << pose.getOrigin().getZ() << "\n"
-			<<"Roll: " << pose.getRotation().getAxis().getX()*180.0/M_PI
-			<<" Pitch: " << pose.getRotation().getAxis().getY()*180.0/M_PI
-			<< " Yaw:" << pose.getRotation().getAxis().getX()*180.0/M_PI << "\n";
+			<<" Roll: "<<roll*180.0/M_PI
+			<<" Pitch: "<<pitch*180.0/M_PI
+			<<" Yaw: "<<yaw*180/M_PI<<"\n";
+
 	return result.str();
 }
 
