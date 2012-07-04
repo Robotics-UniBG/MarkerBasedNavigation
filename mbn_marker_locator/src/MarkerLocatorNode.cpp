@@ -157,10 +157,10 @@ bool loadConstants(){
 		doc["fixedCameratransform_orientation_x"] >> x;
 		doc["fixedCameratransform_orientation_y"] >> y;
 		doc["fixedCameratransform_orientation_z"] >> z;
-		doc["fixedCameratransform_orientation_w"] >> qx;
-		doc["fixedCameratransform_position_x"] >> qy;
-		doc["fixedCameratransform_position_y"] >> qz;
-		doc["fixedCameratransform_position_z"] >> qw;
+		doc["fixedCameratransform_orientation_w"] >> qw;
+		doc["fixedCameratransform_position_x"] >> qx;
+		doc["fixedCameratransform_position_y"] >> qy;
+		doc["fixedCameratransform_position_z"] >> qz;
 
 		fixedCameratransform.setOrigin(btVector3(x,y,z));
 		fixedCameratransform.setRotation(btQuaternion(qx, qy, qz, qw));
