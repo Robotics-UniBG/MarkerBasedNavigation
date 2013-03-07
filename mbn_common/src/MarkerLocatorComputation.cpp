@@ -200,14 +200,14 @@ void MarkerLocatorComputation::addNewMarkerToFoundMarkersList(ARToolKitPlus::ARM
 	tf::Pose camera2markerPose;
 	ComputeMarkerToCameraPose(newMarkFound, camera2markerPose);
 
-	printf("Marker found ID: %d \n", marker_found->id);
-	printf("Marker/Camera Pose: %s", utility.getPositionAndOrientation(camera2markerPose).c_str());
+	//printf("Marker found ID: %d \n", marker_found->id);
+	//printf("Marker/Camera Pose: %s", utility.getPositionAndOrientation(camera2markerPose).c_str());
 
 
 //	tf::Pose cameraPoseTf;
 //	tf::poseMsgToTF(cameraPose,cameraPoseTf);
 	camera2markerPose.mult(cameraPose, camera2markerPose);//the otput of this call overwrite camera2markerPose with the aspected final marker pose
-	printf("Marker/Camera Pose: %s", utility.getPositionAndOrientation(camera2markerPose).c_str());
+	//printf("Marker/Camera Pose: %s", utility.getPositionAndOrientation(camera2markerPose).c_str());
 	detectedMarkersID->push_back(marker_found->id);
 	detectedMarkersPoses->push_back(camera2markerPose);
 }
